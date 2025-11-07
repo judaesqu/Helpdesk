@@ -42,11 +42,21 @@ if(isset($_SESSION["usu_id"])){
 				<div class="row">
 					<div class="col-lg-6">
 						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInput">Categoría</label>
-							<select id="exampleSelect" class="form-control">
-								<option>Hardware</option>
-								<option>Software</option>
-								<option>Otros</option>
+							<label class="form-label semibold" for="exampleInput">División</label>
+							<select id="div_id" class="form-control">	
+							</select>
+						</fieldset>
+					</div>
+					<div class="col-lg-6">
+						<fieldset class="form-group">
+							<label class="form-label semibold" for="exampleInput">Canal de Comunicación</label>
+							<select class="form-control">
+							</select>
+						</fieldset>
+					</div>
+					<div class="col-lg-6">
+						<fieldset class="form-group">
+							<label class="form-label semibold" for="exampleInput">División</label>	
 							</select>
 						</fieldset>
 					</div>
