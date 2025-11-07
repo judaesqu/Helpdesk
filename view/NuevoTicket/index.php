@@ -37,61 +37,38 @@ if(isset($_SESSION["usu_id"])){
 					Por favor ingrese la información para el inicio del caso.
 				</p>
 
-                <form>
-					<div class="form-group row">
-						<label class="col-sm-2 form-control-label">Text</label>
-						<div class="col-sm-10">
-							<p class="form-control-static"><input type="text" class="form-control" id="inputPassword" placeholder="Text"></p>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 form-control-label">Text Disabled</label>
-						<div class="col-sm-10">
-							<p class="form-control-static"><input type="text" disabled class="form-control" id="inputPassword" placeholder="Text Disabled"></p>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 form-control-label">Text Readonly</label>
-						<div class="col-sm-10">
-							<p class="form-control-static"><input type="text" readonly class="form-control" id="inputPassword" placeholder="Text Readonly"></p>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="inputPassword" class="col-sm-2 form-control-label">Password</label>
-						<div class="col-sm-10">
-							<input type="password" class="form-control" id="inputPassword" placeholder="Password">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="exampleSelect" class="col-sm-2 form-control-label">Select</label>
-						<div class="col-sm-10">
+				<h5 class="m-t-lg with-border">Ingresar información</h5>
+
+				<div class="row">
+					<div class="col-lg-6">
+						<fieldset class="form-group">
+							<label class="form-label semibold" for="exampleInput">Categoría</label>
 							<select id="exampleSelect" class="form-control">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
+								<option>Hardware</option>
+								<option>Software</option>
+								<option>Otros</option>
 							</select>
-						</div>
+						</fieldset>
 					</div>
-					<div class="form-group row">
-						<label for="exampleSelect2" class="col-sm-2 form-control-label">Multiple select</label>
-						<div class="col-sm-10">
-							<select multiple class="form-control" id="exampleSelect2">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-							</select>
-						</div>
+					<div class="col-lg-6">
+						<fieldset class="form-group">
+							<label class="form-label semibold" for="exampleInputEmail1">Titulo</label>
+							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ingrese Título" >
+						</fieldset>
 					</div>
-					<div class="form-group row">
-						<label for="exampleSelect" class="col-sm-2 form-control-label">Textarea</label>
-						<div class="col-sm-10">
-							<textarea rows="4" class="form-control" placeholder="Textarea"></textarea>
-						</div>
+					<div class="col-lg-12">
+						<fieldset class="form-group">
+							<label class="form-label semibold" for="exampleInputPassword1">Descripción</label>
+							<div class="summernote-theme-1">
+								<textarea id="tick_descrip" class="summernote" name="name">Hello Summernote</textarea>
+							</div>
+						</fieldset>
 					</div>
-				</form>
+					<div class="col-lg-12">
+						<button type="button" class="btn btn-rounded btn-inline btn-primary">Guardar</button>
+					</div>	
+				</div><!--.row-->
+               
             </div>
         </div>
     </div>
