@@ -49,8 +49,8 @@ if(isset($_SESSION["usu_id"])){
 					</div>
 					<div class="col-lg-6">
 						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInput">Canal de Comunicación</label>
-							<select class="form-control">
+							<label class="form-label semibold" for="exampleInput">Novedad</label>
+							<select id="id_nov" class="form-control">
 							</select>
 						</fieldset>
 					</div>
