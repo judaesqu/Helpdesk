@@ -1,3 +1,10 @@
+		function init(){
+			$("#ticket_form").on("submit", function(e){
+				guardaryeditar(e);
+			});
+
+		}
+
 		$(document).ready(function() {
 			$('#tick_descrip').summernote({
 				height:150
@@ -22,3 +29,21 @@
 				}
 			});
 		});	
+
+		function guardaryeditar(e){
+			e.preventDefault();
+			var formData = new FormData($("#ticket_form")[0]);
+			var nombre_novedad = $('#id_nov option:selected').text();
+			formData.append("novedad", nombre_novedad);
+			$.ajax({
+				url: "../../controller/ticket.php?op=insert",
+				type: "POST",
+				data: formData,
+				contentType: false,
+				processData: false,
+				success: function(datos){
+					console.log(datos);
+				}
+			});
+		}
+		init();

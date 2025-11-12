@@ -40,43 +40,36 @@ if(isset($_SESSION["usu_id"])){
 				<h5 class="m-t-lg with-border">Ingresar información</h5>
 
 				<div class="row">
+					<form method="post" id="ticket_form">
+
+					<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
+
 					<div class="col-lg-6">
 						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInput">División</label>
-							<select id="div_id" class="form-control">	
+							<label class="form-label semibold" for="div_id">División</label>
+							<select id="div_id" name="div_id" class="form-control">	
 							</select>
 						</fieldset>
 					</div>
 					<div class="col-lg-6">
 						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInput">Novedad</label>
-							<select id="id_nov" class="form-control">
+							<label class="form-label semibold" for="id_nov">Novedad</label>
+							<select id="id_nov" name="id_nov" class="form-control">
 							</select>
-						</fieldset>
-					</div>
-					<div class="col-lg-6">
-						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInput">División</label>	
-							</select>
-						</fieldset>
-					</div>
-					<div class="col-lg-6">
-						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInputEmail1">Titulo</label>
-							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ingrese Título" >
 						</fieldset>
 					</div>
 					<div class="col-lg-12">
 						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInputPassword1">Descripción</label>
+							<label class="form-label semibold" for="tick_descripcion">Descripción</label>
 							<div class="summernote-theme-1">
-								<textarea id="tick_descrip" class="summernote" name="name">Hello Summernote</textarea>
+								<textarea id="tick_descrip" name="tick_descripcion" class="summernote"></textarea>
 							</div>
 						</fieldset>
 					</div>
 					<div class="col-lg-12">
-						<button type="button" class="btn btn-rounded btn-inline btn-primary">Guardar</button>
-					</div>	
+						<button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Guardar</button>
+					</div>
+</form>	
 				</div><!--.row-->
                
             </div>
