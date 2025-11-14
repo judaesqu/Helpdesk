@@ -42,7 +42,14 @@
 				contentType: false,
 				processData: false,
 				success: function(datos){
-					console.log(datos);
+					var codigo = datos.codigo_ticket;
+					$('#div_id').val('');
+					$('#id_nov').val('');
+					$('#tick_descrip').summernote('reset');
+					swal("Correcto","Registrado Correctamente. Ticket Asignado: " + codigo, "success");
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					swal("Error", "Hubo un problema al registrar el ticket: " + textStatus, "error");
 				}
 			});
 		}
