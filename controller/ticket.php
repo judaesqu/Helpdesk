@@ -44,7 +44,9 @@
                 $sub_array [] = $row["tick_id"];
                 $sub_array [] = $row["div_nom"];
                 $sub_array [] = $row["novedad"];
+                $sub_array [] = $row["usu_nom"]. ' ' . $row["usu_ap"];
                 $sub_array [] = '<button type="button" onClick = "ver('.$row["tick_id"].');" id="'.$row["tick_id"].'" class="btn btn-outline-primary btn-icon"><div><i class ="fa fa-edit"></i></div></button>';
+                $data [] = $sub_array;
             }
 
             $results = array(
