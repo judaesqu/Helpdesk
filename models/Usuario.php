@@ -59,6 +59,95 @@ class Usuario extends Conectar{
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
+
+        public function delete_usuario($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="call sp_d_usuario_01(?)";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario(){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="call sp_l_usuario_01()";
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario_x_rol(){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT * FROM tm_usuario WHERE rol_id=2 AND est=1;";
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario_x_id($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="call sp_l_usuario_02(?)";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario_total_x_id($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT COUNT (*) as total FROM tm_ticket WHERE usu_id = ?";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario_totalabierto_x_id($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT COUNT (*) as total FROM tm_ticket WHERE usu_id = ? AND tick_estado = 'Abierto'";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario_totalcerrado_x_id($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT COUNT (*) as total FROM tm_ticket WHERE usu_id = ? AND tick_estado = 'Cerrado'";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario_grafico($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT tm_division.div_nom, COUNT(*) AS total FROM tm_ticket JOIN tm_division ON tm_ticket.div_id = tm_division.div_id WHERE tm_ticket.est = 1 AND tm_ticket.usu_id = ? GROUP BY tm_division.div_nom; ORDER BY total DESC";  
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function update_usuario_pass($usu_id, $usu_pass){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT tm_usuario SET usu_pass=MD5(?) WHERE usu_id=?;";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_pass);
+            $sql->bindValue(2, $usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
     }
 ?>
 
